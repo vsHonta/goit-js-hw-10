@@ -15,14 +15,45 @@ body {
 #search-box {
   font: inherit;
   padding: 8px;
+  margin-bottom: 16px;
+  margin-left: 36px;
+
+  min-width: 300px;
   max-width: 320px;
+  min-height: 50px;
+  
+}
+
+.country-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.list{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.item-title{
   margin-bottom: 16px;
 }
 
 .item {
   list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  font-weight: 500;
 }
 
-.list {
-  list-style: none;
+.text-title{
+  font-size: 28px;
+}
+
+.text-subtitle{
+  font-size: 20px;
 }

@@ -26,6 +26,8 @@ function onInput(evt) {
     const {value} = evt.target
 
     if (value === "") {
+        wrapper.innerHTML = "";
+        div.innerHTML = "";
         return
     }
 
@@ -49,18 +51,21 @@ function createMarkUp(dataArr) {
         div.innerHTML = "";
         dataArr.map(unit => wrapper.insertAdjacentHTML('afterbegin',
             `<li class="item">
-                <img src=${unit.flags.svg} alt="flag" width="100" height="70 "> 
-                ${unit.name.common}
+                <img src=${unit.flags.svg} alt="flag" width="50" height="30"> 
+                <span class="item">${unit.name.common}</span>
             </li>`))
     } else {
         wrapper.innerHTML = ""
         const langs = Object.values(dataArr[0].languages)
         div.innerHTML = 
             `<ul class="list">
-                <li class="item"><img src="${dataArr[0].flags.svg}" alt="flag" width="100"/>${dataArr[0].name.common}</li>
-                <li class="item">${dataArr[0].capital}</li>
-                <li class="item">${dataArr[0].population}</li>
-                <li class="item">${langs.join(', ')}</li>
+                <li class="item item-title">
+                    <img src="${dataArr[0].flags.svg}" alt="flag" width="50" height="30"/>
+                    <span class="text-title">${dataArr[0].name.common}</span>
+                </li>
+                <li class="item item-subtitle"><span class="text-subtitle">Capital:</span> ${dataArr[0].capital}</li>
+                <li class="item item-subtitle"><span class="text-subtitle">Population:</span> ${dataArr[0].population}</li>
+                <li class="item item-subtitle"><span class="text-subtitle">Languages:</span> ${langs.join(', ')}</li>
             </ul>`
     }
 }
