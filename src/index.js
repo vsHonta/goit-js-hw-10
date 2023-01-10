@@ -14,12 +14,6 @@ const refs = {
 const { input, wrapper, div } = refs
 
 input.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY))
-    // debounce(() =>
-    //     fetchCountries(input.value)
-    //     .then(res => res.json())
-    //     .then(data => console.log(data))
-    //         .catch(err => console.log(err)), 1000))
-
 
 
 function onInput(evt) {
@@ -32,13 +26,19 @@ function onInput(evt) {
     }
 
     fetchCountries(value)
-    .then(res => res.json())
-    .then(dataArr => {
-        console.log(dataArr)
-        createMarkUp(dataArr)
-    })
-    .catch(err => console.log(err))
-}
+        .then(res => {
+            if (res.ok === false) {
+                return Notify.failure("Oops, there is no country with that name");
+            }
+            console.log(res)
+            return res.json()
+        })
+        .then(dataArr => {
+            console.log(dataArr)
+            createMarkUp(dataArr)
+        })
+        .catch(err => console.log(err))
+    }
 
 
 
