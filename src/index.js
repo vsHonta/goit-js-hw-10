@@ -63,9 +63,9 @@ function createMarkUp(dataArr) {
                     <img src="${dataArr[0].flags.svg}" alt="flag" width="50" height="30"/>
                     <span class="text-title">${dataArr[0].name.common}</span>
                 </li>
-                <li class="item item-subtitle"><span class="text-subtitle">Capital:</span> ${dataArr[0].capital}</li>
-                <li class="item item-subtitle"><span class="text-subtitle">Population:</span> ${dataArr[0].population}</li>
-                <li class="item item-subtitle"><span class="text-subtitle">Languages:</span> ${langs.join(', ')}</li>
+                <li class="item item-subtitle"><p><span class="text-subtitle">Capital:</span> ${dataArr[0].capital}</p></li>
+                <li class="item item-subtitle"><p><span class="text-subtitle">Population:</span> ${dataArr[0].population}</p></li>
+                <li class="item item-subtitle"><p><span class="text-subtitle">Languages:</span> ${langs.join(', ')}</p></li>
             </ul>`
     }
 }
